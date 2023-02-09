@@ -14,8 +14,16 @@ public class Main {
 
     public static void main(String[] args) {
         GeneratePokemonTeam generatePokemonTeam = new GeneratePokemonTeam();
+        JSONObject[] myPokemonTeam = new JSONObject[6];
 
-        System.out.println(generatePokemonTeam.generatePokemonTeam());
+        System.out.println("Generating your team...");
+        generatePokemonTeam.generatePokemonTeam(myPokemonTeam);
+        for(int i=0; i<6; i++){
+            System.out.println("Pokemon #" + (i+1) + ": " + myPokemonTeam[i].get("pokemonName"));
+
+        }
+    //    System.out.println(myPokemonTeam.get());
+    //    System.out.println(generatePokemonTeam.generatePokemonTeam());
     }
 
     }

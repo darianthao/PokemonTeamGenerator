@@ -12,9 +12,8 @@ public class GeneratePokemonTeam {
     public GeneratePokemonTeam() {
     }
 
-    public JSONArray generatePokemonTeam(){
+    public JSONObject[] generatePokemonTeam(JSONObject[] myActualPokemonTeam){
         RandomIntegerGenerator random = new RandomIntegerGenerator();
-        JSONArray myActualPokemonTeam = new JSONArray();
 
         for (int i = 0; i < 6; i++) {
             JSONObject myPokemonData = new JSONObject();
@@ -52,8 +51,8 @@ public class GeneratePokemonTeam {
                     // Stores only the Data I want for my Pokemon
                     myPokemonData.put("pokemonName", pokemonObject.get("name"));
                     myPokemonData.put("pokedexId", pokemonObject.get("id"));
-                    myActualPokemonTeam.add(myPokemonData.get("pokemonName"));
-                    myActualPokemonTeam.add(myPokemonData.get("pokedexId"));
+                    myActualPokemonTeam[i] = myPokemonData;
+                  //  myActualPokemonTeam.put("Slot #" + i, myPokemonData);
 
 
                 }
