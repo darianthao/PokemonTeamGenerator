@@ -13,17 +13,43 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
+
         GeneratePokemonTeam generatePokemonTeam = new GeneratePokemonTeam();
         JSONObject[] myPokemonTeam = new JSONObject[6];
+        Scanner s = new Scanner (System.in);
 
-        System.out.println("Generating your team...");
-        generatePokemonTeam.generatePokemonTeam(myPokemonTeam);
-        for(int i=0; i<6; i++){
-            System.out.println("Pokemon #" + (i+1) + ": " + myPokemonTeam[i].get("pokemonName"));
+        String decision;
 
+        boolean promptUser = true;
+        while(promptUser)
+        {
+            System.out.println("Generating your team...");
+            generatePokemonTeam.generatePokemonTeam(myPokemonTeam);
+            for(int i=0; i<6; i++){
+                System.out.println("Pokemon #" + (i+1) + ": " + myPokemonTeam[i].get("pokemonName"));
+            }
+            System.out.println("Would you like to generate a new team? (y/n)\n");
+            decision = s.nextLine();
+
+
+            switch(decision)
+            {
+                case "y":
+                    promptUser = true;
+                    break;
+
+                case "n":
+                    promptUser = false;
+                    System.out.println("Goodluck on your adventure!");
+                    break;
+
+                default:
+                        System.out.println("Rerun the program enter in a valid input\n");
+                    promptUser = false;
+                    break;
+
+            }
         }
-    //    System.out.println(myPokemonTeam.get());
-    //    System.out.println(generatePokemonTeam.generatePokemonTeam());
     }
 
     }
