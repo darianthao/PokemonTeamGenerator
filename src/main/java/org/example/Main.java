@@ -1,13 +1,7 @@
 package org.example;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.JSONValue;
-import org.json.simple.parser.JSONParser;
 
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.Arrays;
-import java.util.Random;
+import org.json.simple.JSONObject;
+
 import java.util.Scanner;
 
 public class Main {
@@ -27,6 +21,9 @@ public class Main {
             generatePokemonTeam.generatePokemonTeam(myPokemonTeam);
             for(int i=0; i<6; i++){
                 System.out.println("Pokemon #" + (i+1) + ": " + myPokemonTeam[i].get("pokemonName"));
+                System.out.println("Pokedex #" + myPokemonTeam[i].get("pokedexId"));
+                System.out.println("Weight: " + myPokemonTeam[i].get("weight") + " lbs");
+
             }
             System.out.println("Would you like to generate a new team? (y/n)\n");
             decision = s.nextLine();
@@ -40,7 +37,7 @@ public class Main {
 
                 case "n":
                     promptUser = false;
-                    System.out.println("Goodluck on your adventure!");
+                    System.out.println("Goodluck on your Pokemon adventure!");
                     break;
 
                 default:

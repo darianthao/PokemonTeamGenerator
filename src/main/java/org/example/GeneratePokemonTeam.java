@@ -51,6 +51,7 @@ public class GeneratePokemonTeam {
                     // Stores only the Data I want for my Pokemon
                     myPokemonData.put("pokemonName", pokemonObject.get("name"));
                     myPokemonData.put("pokedexId", pokemonObject.get("id"));
+                    myPokemonData.put("weight", pokemonObject.get("weight"));
                     myActualPokemonTeam[i] = myPokemonData;
                   //  myActualPokemonTeam.put("Slot #" + i, myPokemonData);
 
