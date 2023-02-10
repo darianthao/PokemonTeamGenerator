@@ -7,15 +7,18 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Scanner;
 
-public class GeneratePokemonTeam {
+public class PokemonAPI {
 
-    public GeneratePokemonTeam() {
+    public PokemonAPI() {
+
     }
 
-    public JSONObject[] generatePokemonTeam(JSONObject[] myActualPokemonTeam){
+    public JSONObject[] generatePokemonTeam(JSONObject[] myPokemonTeam){
+
+        // Creates an instance of RandomIntegerGeneratorClass
         RandomIntegerGenerator random = new RandomIntegerGenerator();
 
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < myPokemonTeam.length; i++) {
             JSONObject myPokemonData = new JSONObject();
             int pokemonId = random.getRandomNumberUsingInts();
 
@@ -48,12 +51,11 @@ public class GeneratePokemonTeam {
                     JSONParser parse = new JSONParser();
                     JSONObject pokemonObject = (JSONObject) parse.parse(String.valueOf(informationString));
 
-                    // Stores only the Data I want for my Pokemon
+                    // Stores the Data I want for my Pokemon
                     myPokemonData.put("pokemonName", pokemonObject.get("name"));
                     myPokemonData.put("pokedexId", pokemonObject.get("id"));
                     myPokemonData.put("weight", pokemonObject.get("weight"));
-                    myActualPokemonTeam[i] = myPokemonData;
-                  //  myActualPokemonTeam.put("Slot #" + i, myPokemonData);
+                    myPokemonTeam[i] = myPokemonData;
 
 
                 }
@@ -63,6 +65,6 @@ public class GeneratePokemonTeam {
             }
         }
 
-        return myActualPokemonTeam;
+        return myPokemonTeam;
     }
 }

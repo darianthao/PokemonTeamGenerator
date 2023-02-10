@@ -8,17 +8,17 @@ public class Main {
 
     public static void main(String[] args) {
 
-        GeneratePokemonTeam generatePokemonTeam = new GeneratePokemonTeam();
+        PokemonAPI pokemonAPI = new PokemonAPI();
         JSONObject[] myPokemonTeam = new JSONObject[6];
+        String decision;
+        boolean promptUser = true;
         Scanner s = new Scanner (System.in);
 
-        String decision;
-
-        boolean promptUser = true;
         while(promptUser)
         {
             System.out.println("Generating your team...");
-            generatePokemonTeam.generatePokemonTeam(myPokemonTeam);
+            pokemonAPI.generatePokemonTeam(myPokemonTeam);
+
             for(int i=0; i<6; i++){
                 System.out.println("Pokemon #" + (i+1) + ": " + myPokemonTeam[i].get("pokemonName"));
                 System.out.println("Pokedex #" + myPokemonTeam[i].get("pokedexId"));
